@@ -1,5 +1,5 @@
 {
-  "name": "trajectory-parser",
+  "name": "agent-session-parser",
   "version": "0.1.0",
   "description": "Standalone utilities for parsing agent session transcripts (Claude Code, Gemini CLI, and more)",
   "main": "dist/index.js",

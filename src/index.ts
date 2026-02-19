@@ -1,5 +1,5 @@
 // ============================================================================
-// trajectory-parser
+// agent-session-parser
 //
 // Standalone utilities for parsing agent session transcripts.
 // Supports Claude Code (JSONL) and Gemini CLI (JSON) formats.

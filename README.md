@@ -1,4 +1,4 @@
-# trajectory-parser
+# agent-session-parser
 
 Standalone TypeScript utilities for parsing AI coding agent session transcripts. Supports **Claude Code** (JSONL) and **Gemini CLI** (JSON) transcript formats.
 
@@ -7,13 +7,13 @@ Ported from the session parsing internals of [github.com/entireio/cli](https://g
 ## Install
 
 ```bash
-npm install trajectory-parser
+npm install agent-session-parser
 ```
 
 ## Quick start
 
 ```ts
-import { claude, gemini } from "trajectory-parser";
+import { claude, gemini } from "agent-session-parser";
 
 // --- Claude Code (JSONL) ---
 const lines = claude.parseFromString(jsonlContent);
@@ -118,7 +118,7 @@ import type {
   AgentType,       // "Claude Code" | "Gemini CLI"
   PromptResponsePair,
   TranscriptPosition,
-} from "trajectory-parser";
+} from "agent-session-parser";
 ```
 
 #### Utilities
@@ -128,7 +128,7 @@ import {
   stripIDEContextTags,    // Remove <ide_opened_file>, <system-reminder>, etc.
   deduplicateStrings,     // Deduplicate string array preserving order
   emptyTokenUsage,        // Create a zero-valued TokenUsage object
-} from "trajectory-parser";
+} from "agent-session-parser";
 ```
 
 #### Chunking
@@ -148,7 +148,7 @@ import {
   parseChunkIndex,           // Extract chunk index from filename
   sortChunkFiles,            // Sort chunk filenames in order
   MAX_CHUNK_SIZE,            // 50MB default
-} from "trajectory-parser";
+} from "agent-session-parser";
 ```
 
 ## Examples
@@ -156,7 +156,7 @@ import {
 ### Extract all files changed in a Claude Code session
 
 ```ts
-import { claude } from "trajectory-parser";
+import { claude } from "agent-session-parser";
 import { readFileSync } from "fs";
 
 const content = readFileSync("~/.claude/projects/abc123/session.jsonl", "utf-8");
@@ -170,7 +170,7 @@ console.log("Modified files:", files);
 ### Get token usage including subagents
 
 ```ts
-import { claude } from "trajectory-parser";
+import { claude } from "agent-session-parser";
 import { readFileSync } from "fs";
 import { join } from "path";
 
@@ -195,7 +195,7 @@ if (usage.subagentTokens) {
 ### Parse incremental transcript updates
 
 ```ts
-import { claude } from "trajectory-parser";
+import { claude } from "agent-session-parser";
 
 let lastLineCount = 0;
 
@@ -213,7 +213,7 @@ function onTranscriptUpdate(content: string) {
 ### Chunk a large transcript for upload
 
 ```ts
-import { chunkTranscript, reassembleTranscript } from "trajectory-parser";
+import { chunkTranscript, reassembleTranscript } from "agent-session-parser";
 import { readFileSync } from "fs";
 
 const largeContent = readFileSync("huge-session.jsonl", "utf-8");

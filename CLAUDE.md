@@ -2,7 +2,7 @@
 
 ## Project overview
 
-`trajectory-parser` is a standalone TypeScript library for parsing AI coding agent session transcripts. It supports Claude Code (JSONL) and Gemini CLI (JSON) formats. Ported from the session parsing internals of `github.com/entireio/cli`.
+`agent-session-parser` is a standalone TypeScript library for parsing AI coding agent session transcripts. It supports Claude Code (JSONL) and Gemini CLI (JSON) formats. Ported from the session parsing internals of `github.com/entireio/cli`.
 
 ## Architecture
 
@@ -27,7 +27,7 @@ src/
       index.ts      # Re-exports
 ```
 
-The two parsers are namespaced: `import { claude, gemini } from "trajectory-parser"`.
+The two parsers are namespaced: `import { claude, gemini } from "agent-session-parser"`.
 
 Each parser follows the same pattern:
 - **types.ts** — agent-specific message/tool/hook types

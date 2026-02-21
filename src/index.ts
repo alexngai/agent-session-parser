@@ -28,6 +28,9 @@ export { stripIDEContextTags, deduplicateStrings } from "./utils.js";
 export * as claude from "./parsers/claude/index.js";
 export * as gemini from "./parsers/gemini/index.js";
 
+// Converters (streaming event → AgentSession)
+export * as converters from "./converters/index.js";
+
 // Chunking utilities
 export {
   MAX_CHUNK_SIZE,
